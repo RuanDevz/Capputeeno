@@ -1,8 +1,12 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Saira_Stencil_One } from "next/font/google";
 import "./globals.css";
+import Header from "./components/Header";
 
-const inter = Inter({ subsets: ["latin"] });
+const Saira = Saira_Stencil_One({
+  subsets: ["latin"],
+  weight: ["400"],
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -16,7 +20,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={Saira.className}>
+        <Header />
+        {children}
+      </body>
     </html>
   );
 }
