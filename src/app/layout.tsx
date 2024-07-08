@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
-import { Saira_Stencil_One } from "next/font/google";
+import { Saira } from "next/font/google";
+
 import "./globals.css";
 import Header from "./components/Header";
 
-const Saira = Saira_Stencil_One({
+const saira = Saira({
   subsets: ["latin"],
   weight: ["400"],
 });
@@ -20,7 +21,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={Saira.className}>
+      <body className={saira.className}>
         <Header />
         {children}
       </body>
