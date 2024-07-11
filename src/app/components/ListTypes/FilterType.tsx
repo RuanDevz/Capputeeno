@@ -7,7 +7,7 @@ const FilterType = () => {
 
   return (
     <div>
-      <ul className="px-[160px] flex justify-between">
+      <ul className=" flex justify-between">
         <PaginationPrimary/>
         <PaginationSegundary/>
       </ul>
