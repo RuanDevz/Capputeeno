@@ -5,7 +5,7 @@ import { GetURL } from "./api/product/(BASEURL)/api";
 import { Product } from "@/types/Product";
 
 const HomePage = () => {
-  const [products, setProducts] = useState<Product[]>([]);
+  const [allProducts, setAllproducts] = useState<Product[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {
