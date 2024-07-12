@@ -1,40 +1,45 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import filterContext from "../../../../context/FilterContext";
+import { FilterType } from "@/types/Filters";
 
 const PaginationPrimary = () => {
-  const [activeItem, setActiveItem] = useState("TODOS OS PRODUTOS");
+  const { type, setType } = useContext(filterContext);
+  const [selectedItem, setSelectedItem] = useState(FilterType.ALL)
 
-  const handleClick = (itemName: string) => {
-    setActiveItem(itemName);
+  const handleItemClick = (filterType: FilterType) => {
+    setType(filterType); 
+    setSelectedItem(filterType); 
   };
+
   return (
     <div className="flex items-center gap-10 pt-10">
       <li
-        className={`text-Filtercolor cursor-pointer ${
-          activeItem === "TODOS OS PRODUTOS"
-            ? "font-bold  border-b-4 border-[#ffa584]"
+        className={`cursor-pointer ${
+          selectedItem === FilterType.ALL
+            ? "font-bold border-b-4 border-[#FFA585]"
             : ""
         }`}
-        onClick={() => handleClick("TODOS OS PRODUTOS")}
+        onClick={() => handleItemClick(FilterType.ALL)}
       >
         TODOS OS PRODUTOS
       </li>
       <li
-        className={`text-Filtercolor cursor-pointer ${
-          activeItem === "CAMISETAS"
-            ? "font-bold  border-b-4 border-[#ffa584]"
+        className={`cursor-pointer ${
+          selectedItem === FilterType.SHIRT
+            ? "font-bold border-b-4 border-[#FFA585]"
             : ""
         }`}
-        onClick={() => handleClick("CAMISETAS")}
+        onClick={() => handleItemClick(FilterType.SHIRT)}
       >
         CAMISETAS
       </li>
       <li
-        className={`text-Filtercolor cursor-pointer ${
-          activeItem === "CANECAS"
-            ? " font-bold  border-b-4 border-[#ffa584]"
+        className={`cursor-pointer ${
+          selectedItem === FilterType.MUGS
+            ? "font-bold border-b-4 border-[#FFA585]"
             : ""
         }`}
-        onClick={() => handleClick("CANECAS")}
+        onClick={() => handleItemClick(FilterType.MUGS)}
       >
         CANECAS
       </li>

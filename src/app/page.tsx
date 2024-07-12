@@ -5,12 +5,12 @@ import { GetURL } from "./api/product/BASEURL/api";
 import { Product } from "@/types/Product";
 import FilterType from "./components/ListTypes/FilterType";
 import Page from "./components/Home/Index";
-import ProductContext from "../../context/Productcontext";
+import ProductContext from "../../context/FilterContext";
 
 const HomePage = () => {
   return (
     <div className="px-[160px]">
-      <Page/>
+      <Page />
     </div>
   );
 };

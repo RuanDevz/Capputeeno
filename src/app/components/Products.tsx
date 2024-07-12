@@ -1,16 +1,12 @@
+'use client'
 import { useContext, useEffect, useState } from "react";
-import ProductContext from "../../../context/Productcontext";
+import ProductContext from "../../../context/FilterContext";
 import { GetURL } from "../api/product/BASEURL/api";
 import { Product } from "@/types/Product";
 import Image from "next/image";
+import { convertPriceInCentsToReal } from "../../../utils/FormatedCurrency";
 
-const convertPriceInCentsToReal = (priceInCents: number): string => {
-  const priceInReal = (priceInCents / 100).toLocaleString('pt-BR', {
-    style: 'currency',
-    currency: 'BRL'
-  });
-  return priceInReal;
-};
+
 
 export default function Products() {
   const [allProducts, setAllproducts] = useState<Product[]>([]);
@@ -42,7 +38,9 @@ export default function Products() {
           </div>
           <div className="flex flex-col gap-5 justify-start">
             <p>{product.name}</p>
-            <strong className="pb-7">{convertPriceInCentsToReal(product.price_in_cents)}</strong>
+            <strong className="pb-7">
+              {convertPriceInCentsToReal(product.price_in_cents)}
+            </strong>
           </div>
         </div>
       ))}
