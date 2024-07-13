@@ -6,7 +6,7 @@ import { useLocalStorage } from "../Hooks/UseLocalStorage";
 import CartCount from "./CartCount";
 
 const Cart = () => {
-  const { value, updateLocalStorage } = useLocalStorage<string>("myItem");
+  const { value} = useLocalStorage<string>("myItem");
 
 
 
